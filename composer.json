@@ -1,0 +1,33 @@
+{
+    "name": "PushNotification/push-notification-library",
+    "description": "Send push notification to android|ios devices , support APNs, FCM",
+    "keywords": [
+        "apple",
+        "iphone",
+        "apns",
+        "android",
+        "gcm",
+        "notification",
+        "message",
+        "push",
+        "pusher"
+    ],
+    "type": "standalone",
+    "require": {
+        "php": ">=5.6",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jabar asadi",
+            "email": "asadi.jabar@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "PushNotification": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

@@ -1,7 +1,10 @@
-Standalone PHP library for easy devices message notifications push.  
-<i class="icon-flag"></i> **Feel free to contribute! **  
+*Push Notification Library*  
+-------------
 
-----------
+Standalone PHP library for easy devices message notifications push.  
+<i class="icon-flag"></i> 
+**Feel free to contribute!**
+
 
 
 Installation

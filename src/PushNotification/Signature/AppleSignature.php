@@ -9,7 +9,6 @@
 
 namespace PushNotification\Signature;
 
-use Foundation\Exceptions\InvalidArgumentException;
 use PushNotification\Exceptions\PushException;
 use PushNotification\Exceptions\StreamSocketClientException;
 
@@ -129,7 +128,7 @@ class AppleSignature extends SignatureAbstract
         }
 
         if (!is_string($this->getCertification()) || !file_exists($this->getCertification())) {
-            throw new InvalidArgumentException('Certificate must be a valid path to a APNS certificate');
+            throw new PushException('Certificate must be a valid path to a APNS certificate');
         }
 
         $sslOptions = array(
@@ -139,7 +138,7 @@ class AppleSignature extends SignatureAbstract
         // this option should be changed in the future
         /*if ($this->getPassPhrase() !== null) {
             if (!is_scalar($this->getPassPhrase())) {
-                throw new Exception\InvalidArgumentException('SSL passphrase must be a scalar');
+                throw new Exception\PushException('SSL passphrase must be a scalar');
             }
             $sslOptions['passphrase'] = $passPhrase;
         }*/

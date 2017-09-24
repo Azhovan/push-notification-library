@@ -73,3 +73,53 @@ $response  = PushService::getInstance()->send($data);
 
 ```
 
+### Android :
+```php
+include_once "vendor/autoload.php";
+
+use PushNotification\Service\PushService;
+
+$data = array(
+    'device' => array(
+        'name' => 'Android',  
+        'token' => '', 
+        'id' => 'some id here '),
+
+    'message' => array(
+        'action' => 'test',
+        'title' => 'this is test title',
+        'targets' => array('token1', 'token2', 'token3'),
+        'body' => 'this is body',
+        'type' => 'AndroidMessages',  
+        'data' => array('type' => 'testType'))
+);
+$response  = PushService::getInstance()->send($data);
+print_r($response);
+
+```
+
+
+### IOS :
+```php
+include_once "vendor/autoload.php";
+
+use PushNotification\Service\PushService;
+
+$data = array(
+    'device' => array(
+        'name' => 'AppleIOS',
+        'token' => 'token',
+        'id' => 'BECDSx'),
+
+    'message' => array(
+        'action' => 'test',
+        'title' => 'this is test title',
+        'targets' => array(),
+        'body' => 'this is body',
+        'type' => 'IOSMessages', 
+        'data' => array('type' => 'testType'))
+);
+$response  = PushService::getInstance()->send($data);
+print_r($response);
+
+```

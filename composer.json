@@ -1,5 +1,5 @@
 {
-    "name": "push-notification/push-notification-library",
+    "name": "push-notification/push-notification-php-library",
     "description": "Send push notification to android|ios devices , support APNs, FCM",
     "keywords": [
         "apple",

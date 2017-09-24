@@ -2,8 +2,8 @@
 
 namespace PushNotification\Message;
 
-
 use PushNotification\Exceptions\MessageException;
+use PushNotification\Exceptions\PushException;
 
 class MessageFactory implements FactoryInterface
 {
@@ -64,9 +64,8 @@ class MessageFactory implements FactoryInterface
             || !isset($this->data['title']) || empty($this->data['title'])
             || !isset($this->data['body']) || empty($this->data['body'])
             || !isset($this->data['data']) || empty($this->data['data'])
-            || !isset($this->data['targets']) || empty($this->data['targets'])
         ) {
-            throw new MessageException('invalid data. please check message data' );
+            throw new MessageException('invalid data. please check message data');
         }
 
         return true;
@@ -79,7 +78,7 @@ class MessageFactory implements FactoryInterface
     public function create()
     {
         if (!class_exists(MessageConfig::MESSAGE_NAMESPACE . $this->message)) {
-            throw new MessageException('class does not exist');
+            throw new PushException('class does not exist :' . MessageConfig::MESSAGE_NAMESPACE . $this->message);
         }
 
         $this->message = MessageConfig::MESSAGE_NAMESPACE . $this->message;

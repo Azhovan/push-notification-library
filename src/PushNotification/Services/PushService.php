@@ -2,7 +2,8 @@
 
 namespace PushNotification\Service;
 
-use Guzzle\Http\Client;
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
 use PushNotification\Device\DeviceFactory;
 use PushNotification\Device\DeviceInterface;
 use PushNotification\Message\BasicMessageInterface;
@@ -46,18 +47,6 @@ class PushService
     }
 
     /**
-     *  array('device' => array(
-     * 'name' => 'Android',
-     * 'token' => 'dUlI1BG-8EQ:APA91bGldZx2BPPdrLU92fQi79LSQuJgvFRWFP447Ly_0xClyndmyBwsGNrepX7cr4K5lRUP9CSPOqc-y-VIrPpq7ccX7EjEfSyBI-zcZLWjKGg_Vw5Ajpjs4nN-REJ2uGMJJ3fklKce',
-     * 'id' => 'BECDS'),
-     *
-     * 'message' => array(
-     * 'action'=> 'test',
-     * 'title' => 'this is test title',
-     * 'targets' => array('123'),
-     * 'body' => 'this is body' ,
-     * 'type'=>'AndroidMessages OR IOSMessages',
-     * 'data' => array('type' => 'testType')))
      * @param $data
      */
     private function _send($data)
@@ -68,9 +57,9 @@ class PushService
 
         $device = DeviceFactory::getInstance()->setParam($data['device'])->create();
         $message = MessageFactory::getInstance()->setParam($data['message'])->create();
+
         $provider = $message->getProvider();
         $this->$provider($message, $device);
-
         // do some log and response here
     }
 
@@ -82,16 +71,14 @@ class PushService
      */
     private function google($message, $device)
     {
-        $request = $this->getClient()->post(
-            $device->getSignature()->getEndPoint(),
-            null,
-            json_encode($message->make(null)),
-            array('debug' => true)
-        );
+        $request = new Request('POST', $device->getSignature()->getEndPoint(), [
+            'Authorization' => $device->getSignature()->getCertification(),
+            'Content-Type' => $device->getSignature()->getContentType()
+        ], json_encode($message->make(null)));
 
-        $request->setHeader('Authorization', $device->getSignature()->getCertification());
-        $request->setHeader('Content-Type', $device->getSignature()->getContentType());
-        return $response = $this->getClient()->send($request);
+        // you can implements you response class
+        $response = $this->getClient()->send($request);
+        return $response->getBody();
     }
 
     /**
@@ -110,6 +97,7 @@ class PushService
      */
     private function apple($message, $device)
     {
+
         // ios need these information in message payload !
         $message->setId($device->getId());
         $message->setToken($device->getToken());
@@ -129,6 +117,7 @@ class PushService
             $data = @fread($socket, 6);
         }
 
+        // you can implements you response class
         return $data;
 
     }

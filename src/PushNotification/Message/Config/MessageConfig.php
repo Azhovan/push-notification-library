@@ -30,6 +30,6 @@ interface MessageConfig
 
     const PUSHID= 'pushId';
 
-    const MESSAGE_NAMESPACE = '\PushNotification\Message\Strategy\\';
+    const MESSAGE_NAMESPACE = 'PushNotification\Message\Strategy\\';
 
 }

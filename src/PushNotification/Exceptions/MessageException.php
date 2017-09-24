@@ -2,7 +2,7 @@
 
 namespace PushNotification\Exceptions;
 
-use RuntimeException;
+use \RuntimeException;
 
 class MessageException extends RuntimeException
 {

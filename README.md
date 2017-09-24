@@ -18,7 +18,7 @@ This repository uses PSR-0 autoload. After installation with composer please adj
 
  **Requirements:**
 
-> - PHP 5.6+
+> - PHP 7+
 > - PHP Curl and OpenSSL modules
 
   > **available supports:**

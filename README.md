@@ -11,7 +11,7 @@ Standalone PHP library for easy devices message notifications push.
 Installation
 -------------
 
-    composer require PushNotification/push-notification-library
+    composer require push-notification/push-notification-php-library
 
 
 This repository uses PSR-0 autoload. After installation with composer please adjust you autoloading config if needed or include vendor/autoload.php in your index.php. 

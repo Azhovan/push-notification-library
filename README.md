@@ -1,8 +1,7 @@
 
 
 # Push Notification Library for php
--------------
-
+ 
 Standalone PHP library for easy devices message notifications push.  
 <i class="icon-flag"></i> 
 **Feel free to contribute!**

@@ -1,5 +1,5 @@
 {
-    "name": "PushNotification/push-notification-library",
+    "name": "push-notification/push-notification-library",
     "description": "Send push notification to android|ios devices , support APNs, FCM",
     "keywords": [
         "apple",

@@ -122,8 +122,4 @@ $data = array(
 $response  = PushService::getInstance()->send($data);
 print_r($response);
 
-<<<<<<< HEAD
 ```
-=======
-```
->>>>>>> fc09742ab9d256a6b5580c414791abc3e7f5ba6a

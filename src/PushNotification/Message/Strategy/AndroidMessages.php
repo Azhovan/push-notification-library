@@ -52,7 +52,7 @@ class AndroidMessages implements BasicMessageInterface, GoogleMessage
      * @param string $provider
      * @return AndroidMessages
      */
-    public function setProvider(string $provider)
+    public function setProvider($provider)
     {
         $this->provider = $provider;
         return $this;
@@ -72,7 +72,7 @@ class AndroidMessages implements BasicMessageInterface, GoogleMessage
      * @param string $action
      * @return AndroidMessages
      */
-    public function setAction(string $action)
+    public function setAction($action)
     {
         $this->action = $action;
         return $this;
@@ -92,7 +92,7 @@ class AndroidMessages implements BasicMessageInterface, GoogleMessage
      * @param string $title
      * @return AndroidMessages
      */
-    public function setTitle(string $title)
+    public function setTitle($title)
     {
         $this->title = $title;
         return $this;
@@ -102,7 +102,7 @@ class AndroidMessages implements BasicMessageInterface, GoogleMessage
      * @param string $body
      * @return AndroidMessages
      */
-    public function setBody(string $body)
+    public function setBody($body)
     {
         $this->body = $body;
         return $this;

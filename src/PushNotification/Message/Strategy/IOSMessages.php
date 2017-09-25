@@ -66,7 +66,7 @@ class IOSMessages implements BasicMessageInterface, AppleMessage
      * @param string $provider
      * @return IOSMessages
      */
-    public function setProvider(string $provider)
+    public function setProvider($provider)
     {
         $this->provider = $provider;
         return $this;
@@ -86,7 +86,7 @@ class IOSMessages implements BasicMessageInterface, AppleMessage
      * @param string $action
      * @return IOSMessages
      */
-    public function setAction(string $action)
+    public function setAction($action)
     {
         $this->action = $action;
         return $this;
@@ -106,7 +106,7 @@ class IOSMessages implements BasicMessageInterface, AppleMessage
      * @param string $title
      * @return IOSMessages
      */
-    public function setTitle(string $title)
+    public function setTitle($title)
     {
         $this->title = $title;
         return $this;
@@ -116,7 +116,7 @@ class IOSMessages implements BasicMessageInterface, AppleMessage
      * @param string $body
      * @return IOSMessages
      */
-    public function setBody(string $body)
+    public function setBody($body)
     {
         $this->body = $body;
         return $this;

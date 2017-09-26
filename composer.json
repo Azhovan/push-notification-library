@@ -28,6 +28,5 @@
         "psr-0": {
             "PushNotification": "src/"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }

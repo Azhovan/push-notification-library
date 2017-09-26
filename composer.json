@@ -28,5 +28,9 @@
         "psr-0": {
             "PushNotification": "src/"
         }
-    }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "prefer-stable": true
 }

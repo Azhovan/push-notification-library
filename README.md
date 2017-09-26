@@ -12,6 +12,7 @@ Installation
 -------------
 
     composer require push-notification/push-notification-php-library
+    composer dump-autoload -o 
 
 
 This repository uses PSR-0 autoload. After installation with composer please adjust you autoloading config if needed or include vendor/autoload.php in your index.php. 

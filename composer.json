@@ -29,20 +29,6 @@
             "PushNotification": "src/"
         }
     },
-    "scripts": {
-        "post-root-package-install": [
-           "composer dump-autoload -o"
-        ],
-        "post-create-project-cmd": [
-           "composer dump-autoload -o"
-        ],
-        "post-install-cmd": [
-            "composer dump-autoload -o"
-        ],
-        "post-update-cmd": [
-            "composer dump-autoload -o" 
-        ]
-    },
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,

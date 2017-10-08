@@ -89,9 +89,9 @@ class AppleIOS implements DeviceInterface
             ));
         }
 
-        if (strlen($token) != 64) {
+        if (strlen($token) == 0) {
             throw new InvalidArgumentException(sprintf(
-                'Device token must be a 64 charsets, Token length given: %d.',
+                'Device token can not be empty, Token length given: %d.',
                 mb_strlen($token)
             ));
         }

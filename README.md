@@ -59,7 +59,7 @@ $data = array(
     'device' => array(
         'name' => '', // Android or AppleIOS
         'token' => '', // device token | user token , if you want to send to apple device you have to fill this 
-        'id' => 'unique id here'
+        'id' => 'unique id here'),
 
     'message' => array(
         'action' => 'test',

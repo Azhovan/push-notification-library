@@ -15,7 +15,8 @@
     "type": "standalone",
     "require": {
         "php": ">=5.6",
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": "^6.3",
+        "vlucas/phpdotenv":"^2.4.0"
     },
     "license": "MIT",
     "authors": [
@@ -28,6 +29,11 @@
         "psr-0": {
             "PushNotification": "src/"
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
     },
     "config": {
         "preferred-install": "dist",

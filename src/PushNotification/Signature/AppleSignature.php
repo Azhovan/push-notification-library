@@ -11,7 +11,7 @@ namespace PushNotification\Signature;
 
 use PushNotification\Exceptions\PushException;
 use PushNotification\Exceptions\StreamSocketClientException;
-use PushNotification\Settings;
+
 
 class AppleSignature extends SignatureAbstract
 {
@@ -37,7 +37,7 @@ class AppleSignature extends SignatureAbstract
      */
     public function setCertification()
     {
-        $this->certification = Settings::APNS_CERTIFICATION_FILE_PATH;
+        $this->certification = getenv('APNS_CERTIFICATION_FILE_PATH');
         return $this;
     }
 
@@ -62,7 +62,7 @@ class AppleSignature extends SignatureAbstract
      */
     public function setEndPoint()
     {
-        $this->endPoint = Settings::APNS_URL;
+        $this->endPoint = getenv('APNS_URL');
         return $this;
     }
 
@@ -207,6 +207,6 @@ class AppleSignature extends SignatureAbstract
      */
     private function getSocketTimeOut()
     {
-        return Settings::Socket_Time_To_Live;
+        return getenv('Socket_Time_To_Live');
     }
 }

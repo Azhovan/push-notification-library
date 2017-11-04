@@ -1,25 +1,24 @@
 <?php
 
 namespace PushNotification;
+use Dotenv\Dotenv;
+use PushNotification\Exceptions\PushException;
 
-interface Settings
+class Settings
 {
-    /** string the path to you apn certification file  */
-    const APNS_CERTIFICATION_FILE_PATH = '';
+    /** @var Dotenv  */
+    private $setting;
 
-    /** string apn endpoint url */
-    const APNS_URL = 'ssl://gateway.push.apple.com:2195';
+    /** @var  string path to .env file */
+    private $path = __DIR__ . '/../../';
 
-    /** string fcm api key */
-    const FCM_API_ACCESS_KEY = '';
-
-    /** string fcm endpoint url */
-    const FCM_URL = 'https://fcm.googleapis.com/fcm/send';
-
-    /** string google content type */
-    const GOOGLE_CONTENT_TYPE = 'application/json';
-
-    /** string socket open limitation*/
-    const Socket_Time_To_Live = 60;
+    public function __construct()
+    {
+        if(!file_exists($this->path) || empty($this->path)) {
+            throw new PushException('.env path is not set correctly, file:' . $this->path);
+        }
+        $this->setting = new Dotenv($this->path);
+        $this->setting->load();
+    }
 
 }

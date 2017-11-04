@@ -2,8 +2,6 @@
 
 namespace PushNotification\Signature;
 
-use PushNotification\Settings;
-
 class GoogleSignature extends SignatureAbstract
 {
 
@@ -20,7 +18,7 @@ class GoogleSignature extends SignatureAbstract
      */
     public function setCertification()
     {
-        $this->certification = 'key='. Settings::FCM_API_ACCESS_KEY;
+        $this->certification = 'key='. getenv('FCM_API_ACCESS_KEY');
         return $this;
     }
 
@@ -29,7 +27,7 @@ class GoogleSignature extends SignatureAbstract
      */
     public function setEndPoint()
     {
-        $this->endPoint = Settings::FCM_URL;
+        $this->endPoint = getenv('FCM_URL');
         return $this;
     }
 
@@ -46,12 +44,12 @@ class GoogleSignature extends SignatureAbstract
     }
 
     /**
-     * @param string $contentType
      * @return $this
+     * @internal param string $contentType
      */
     public function setContentType()
     {
-        $this->contentType = Settings::GOOGLE_CONTENT_TYPE;
+        $this->contentType = getenv('GOOGLE_CONTENT_TYPE');
         return $this;
     }
 }

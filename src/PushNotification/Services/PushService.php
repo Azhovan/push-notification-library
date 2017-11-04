@@ -9,6 +9,7 @@ use PushNotification\Device\DeviceInterface;
 use PushNotification\Message\BasicMessageInterface;
 use PushNotification\Message\MessageFactory;
 use PushNotification\Exceptions\PushException;
+use PushNotification\Settings;
 
 
 class PushService
@@ -25,6 +26,8 @@ class PushService
     private function __construct()
     {
         $this->httpClient = new Client();
+
+        $setting = new Settings();
     }
 
     public static function getInstance()

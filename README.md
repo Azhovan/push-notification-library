@@ -28,25 +28,12 @@ This repository uses PSR-0 autoload. After installation with composer please adj
 > - GCM (Android) and FCM (Android)
 
 ### Setting
-you need to set settings of your provider (Apn, Fcm) at  **src/PushNotification/Settings.php**
-```php
-/** string the path to you apn certification file  */
-    const APNS_CERTIFICATION_FILE_PATH = __DIR__ . '';
+1.  settings of your provider (Apn, Fcm) at  **.env**
+(make sure you renamed the .env.example to .env and filled all the requirements)
 
-    /** string apn endpoint url */
-    const APNS_URL = 'ssl://gateway.push.apple.com:2195';
 
-    /** string fcm api key */
-    const FCM_API_ACCESS_KEY = '';
-
-    /** string fcm endpoint url */
-    const FCM_URL = 'https://fcm.googleapis.com/fcm/send';
-
-    /** string google content type */
-    const GOOGLE_CONTENT_TYPE = 'application/json';
-
-    const Socket_Time_To_Live = 60;
-```
+2. path to .env file :
+you need to set **$path** variable at ```src/PushNotification/Setting``` to the .env file
 
 
 ### How to use : 

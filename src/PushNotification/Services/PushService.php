@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use PushNotification\Device\DeviceFactory;
 use PushNotification\Device\DeviceInterface;
-use PushNotification\Message\BasicMessageInterface;
+use PushNotification\Message\BasicMessageAbstract;
 use PushNotification\Message\MessageFactory;
 use PushNotification\Exceptions\PushException;
 use PushNotification\Settings;
@@ -68,7 +68,7 @@ class PushService
 
     /**
      * send message to google device
-     * @param $message BasicMessageInterface
+     * @param $message BasicMessageAbstract
      * @param $device DeviceInterface
      * @return array|\Guzzle\Http\Message\Response|null
      */

@@ -4,14 +4,14 @@
 namespace PushNotification\Message\Strategy;
 
 use PushNotification\Message\AppleMessage;
-use PushNotification\Message\BasicMessageInterface;
+use PushNotification\Message\BasicMessageAbstract;
 use PushNotification\Message\Config\Provider;
 
 /**
  * Class IOSMessages
  * @package PushNotification\Message\Strategy
  */
-class IOSMessages implements BasicMessageInterface, AppleMessage
+class IOSMessages extends BasicMessageAbstract implements AppleMessage
 {
 
     use Provider;
@@ -21,24 +21,6 @@ class IOSMessages implements BasicMessageInterface, AppleMessage
 
     /** string default sound at push  */
     const DEFAULT_SOUND = 'bingbong.aiff';
-
-    /** @var  string */
-    private $title;
-
-    /** @var  string */
-    private $body;
-
-    /** @var */
-    private $data;
-
-    /** @var  string related action like : events, coins,... */
-    private $action;
-
-    /** @var  string */
-    private $provider;
-
-    /** @var  array of users which targeted */
-    private $targets;
 
     /** @var */
     private $id;
@@ -54,73 +36,6 @@ class IOSMessages implements BasicMessageInterface, AppleMessage
         $this->setProvider(Provider::apple());
     }
 
-    /**
-     * @return string
-     */
-    public function getProvider()
-    {
-        return $this->provider;
-    }
-
-    /**
-     * @param string $provider
-     * @return IOSMessages
-     */
-    public function setProvider($provider)
-    {
-        $this->provider = $provider;
-        return $this;
-    }
-
-    /**
-     * @param mixed $targets
-     * @return IOSMessages
-     */
-    public function setTargets($targets)
-    {
-        $this->targets = $targets;
-        return $this;
-    }
-
-    /**
-     * @param string $action
-     * @return IOSMessages
-     */
-    public function setAction($action)
-    {
-        $this->action = $action;
-        return $this;
-    }
-
-    /**
-     * @param mixed $data
-     * @return IOSMessages
-     */
-    public function setData($data)
-    {
-        $this->data = $data;
-        return $this;
-    }
-
-    /**
-     * @param string $title
-     * @return IOSMessages
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-        return $this;
-    }
-
-    /**
-     * @param string $body
-     * @return IOSMessages
-     */
-    public function setBody($body)
-    {
-        $this->body = $body;
-        return $this;
-    }
 
     /**
      * create full message

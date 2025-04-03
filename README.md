@@ -1,4 +1,10 @@
+ 
 
+> **⚠️ This repository is archived and no longer maintained.**
+> 
+> The code is provided as-is, without any guarantees of updates or support.
+
+ 
 
 # Push Notification Library for php
  
